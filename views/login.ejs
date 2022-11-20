@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-client_id"
         content="338192297466-ak4m4prupsergcftu71qs14al815gn3h.apps.googleusercontent.com">
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <style>
         body {
             background: url(https://i.pinimg.com/736x/74/e4/fa/74e4fa89019446b9d16fd045f9b2cdd2.jpg);
@@ -50,30 +51,7 @@
         </div>
         <br>
         <br>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-        <a href="#" onclick="signOut();">Sign out</a>
-
-    </div>
-
-    <script>
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        }
-    </script>
-
-    <script>
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                console.log('User signed out.');
-            });
-        }
-    </script>
+        <button onclick="location.href = '/principal'" class="mt-2 btn btn-primary">Entrar</button>
 </body>
 
 </html>

@@ -1,7 +1,6 @@
 import fetch from "node-fetch";
 import express from 'express';
 
-
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -19,11 +18,4 @@ app.get('/principal',(req, res)=>{
 app.listen(PORT, ()=>{
     console.log(`Servidor escuchando en el puerto  ${PORT}`);
 })
-
-fetch("https://hp-api.herokuapp.com/api/characters")
-    .then((respuesta)=>{
-        return respuesta.json()
-    }).then((resp)=>{
-        console.log(resp)
-    })
 
