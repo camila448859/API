@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id"
+        content="415478197601-vsqmphacp0eb343eog1fvcg8ttsiiim2.apps.googleusercontent.com">
+
+    <style>
+        body {
+            background: url(https://i.pinimg.com/736x/74/e4/fa/74e4fa89019446b9d16fd045f9b2cdd2.jpg);
+            background-size: cover;
+        }
+
+        .conteiner {
+            background: rgba(238, 245, 245, 0.525);
+            max-width: 600px;
+            height: 700px;
+            margin: 25px auto;
+            box-sizing: border-box;
+            padding: 1rem;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conteiner h1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+        }
+
+        .conteiner .cuadro {
+            padding: 5px;
+            border-radius: 15px;
+            background: url(https://www.quever.news/u/fotografias/m/2022/10/20/f608x342-40007_69730_0.jpg);
+            width: auto;
+            height: 320px;
+        }
+    </style>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="conteiner">
+        <h1>Login</h1>
+        <div class="cuadro">
+        </div>
+        <br>
+        <br>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+        <a href="#" onclick="signOut();">Sign out</a>
+
+    </div>
+
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+    </script>
+
+    <script>
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+</body>
+
+</html>
